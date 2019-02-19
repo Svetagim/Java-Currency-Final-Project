@@ -20,50 +20,65 @@ public class Samplee
     {
         InputStream is = null;
         HttpURLConnection con = null;
+        NodeList nList = null, lastUpdate = null;
         try
         {
+            // Reading XML file from boi
             URL url = new URL("https://www.boi.org.il/currency.xml");
             con = (HttpURLConnection)url.openConnection();
             con.setRequestMethod("GET");
             con.connect();
-
-            BufferedInputStream in = null;
-            FileOutputStream fout = null;
-
-            try {
-                in = new BufferedInputStream((url).openStream());
-                fout = new FileOutputStream("currency.xml");
-
-                final byte data[] = new byte[1024];
-                int count;
-                while ((count = in.read(data, 0, 1024)) != -1) {
-                    fout.write(data, 0, count);
-                }
-            }
-            finally {
-                if (in != null) {
-                    in.close();
-                }
-                if (fout != null) {
-                    fout.close();
-                }
-            }
-
-
             is = con.getInputStream();
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = builder.parse(is);
+            Document docWeb = builder.parse(is);
 
-            NodeList lastUpdate = doc.getElementsByTagName("LAST_UPDATE");
+            lastUpdate = docWeb.getElementsByTagName("LAST_UPDATE");
             System.out.println(lastUpdate.item(0).getTextContent());
 
-            NodeList list = doc.getElementsByTagName("CURRENCY");
-            int length = list.getLength();
-            for(int i=0; i<length; i++)
-            {
-                System.out.println("\n"+ list.item(i).getTextContent());
+            //Reading XML from local file
+            try {
+
+                File fXmlFile = new File("currency.xml");
+                DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+                Document docLocal = dBuilder.parse(fXmlFile);
+                nList = docLocal.getElementsByTagName("LAST_UPDATE");
+                System.out.println(nList.item(0).getTextContent());
+
             }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+            //Comparing the dates - if different we save in local
+
+            if (!lastUpdate.item(0).getTextContent().equals(nList.item(0).getTextContent())){
+                BufferedInputStream in = null;
+                FileOutputStream fout = null;
+
+                try {
+                    in = new BufferedInputStream((url).openStream());
+                    fout = new FileOutputStream("currency.xml");
+
+                    final byte data[] = new byte[1024];
+                    int count;
+                    while ((count = in.read(data, 0, 1024)) != -1) {
+                        fout.write(data, 0, count);
+                    }
+                }
+                finally {
+                    if (in != null) {
+                        in.close();
+                    }
+                    if (fout != null) {
+                        fout.close();
+                    }
+                }
+
+            }
+            else System.out.println("same date");
         }
         catch(IOException e)
         {

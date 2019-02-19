@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d634a80-f6f9-410f-8e6c-3320b63eb298" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/final_project/XML_Connection/Samplee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/final_project/XML_Connection/Samplee.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/XML_Connection/Samplee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XML_Connection/Samplee.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -27,22 +29,24 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="java" value="19" />
+          <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JAVA" value="19" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="10" />
-          <entry key="java" value="630" />
+          <entry key="java" value="997" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="630" />
+          <entry key="JAVA" value="997" />
           <entry key="PLAIN_TEXT" value="10" />
         </counts>
       </usages-collector>
@@ -62,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/XML_Connection/Samplee.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+            <state relative-caret-position="86">
+              <caret line="31" column="82" lean-forward="true" selection-start-line="31" selection-start-column="82" selection-end-line="31" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -138,7 +142,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550584543043" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550586721601" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -225,10 +229,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="540" y="23" width="900" height="792" extended-state="0" />
-    <editor active="true" />
+    <frame x="198" y="23" width="1242" height="789" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.07575758" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.195" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -238,7 +241,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33142856" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.46484935" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -246,7 +249,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.23937677" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.23816356" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -282,10 +285,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/currency.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/XML_Connection/Samplee.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        <state relative-caret-position="86">
+          <caret line="31" column="82" lean-forward="true" selection-start-line="31" selection-start-column="82" selection-end-line="31" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
