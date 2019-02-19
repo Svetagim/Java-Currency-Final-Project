@@ -27,8 +27,27 @@ public class Samplee
             con.setRequestMethod("GET");
             con.connect();
 
-//            FileOutputStream output = new FileOutputStream("currency.xml");
+            BufferedInputStream in = null;
+            FileOutputStream fout = null;
 
+            try {
+                in = new BufferedInputStream((url).openStream());
+                fout = new FileOutputStream("currency.xml");
+
+                final byte data[] = new byte[1024];
+                int count;
+                while ((count = in.read(data, 0, 1024)) != -1) {
+                    fout.write(data, 0, count);
+                }
+            }
+            finally {
+                if (in != null) {
+                    in.close();
+                }
+                if (fout != null) {
+                    fout.close();
+                }
+            }
 
 
             is = con.getInputStream();
