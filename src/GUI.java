@@ -34,7 +34,7 @@ class GUI
 //https://www.javatpoint.com/java-jtable
         JTable jt = new JTable(data,column);
         jt.setBounds(20,200,1000,400);
-        // JScrollPane sp = new JScrollPane(jt);
+         //JScrollPane sp = new JScrollPane(jt);
 
         f.add(lblAmount);
         f.add(txtAmount);

@@ -11,6 +11,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+import java.io.*;
+
 
 public class Samplee
 {
@@ -25,10 +27,17 @@ public class Samplee
             con.setRequestMethod("GET");
             con.connect();
 
+//            FileOutputStream output = new FileOutputStream("currency.xml");
+
+
+
             is = con.getInputStream();
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(is);
+
+            NodeList lastUpdate = doc.getElementsByTagName("LAST_UPDATE");
+            System.out.println(lastUpdate.item(0).getTextContent());
 
             NodeList list = doc.getElementsByTagName("CURRENCY");
             int length = list.getLength();
