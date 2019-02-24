@@ -7,6 +7,7 @@ import org.w3c.dom.NodeList;
 import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.awt.*;
 import java.io.File;
 
 public class GUI {
@@ -55,30 +56,49 @@ public class GUI {
 
 
 
+
+//            GUI
+
 //            Table tb = new Table();
             JFrame f = new JFrame("Java Currency App");
 
+            f.setSize(1200, 800);
+            f.setLayout(new BorderLayout());
+            f.setVisible(true);
+            f.setBackground(Color.gray);
+
             JPanel bottomPanel, topPanel;
-            bottomPanel = new JPanel();
             topPanel = new JPanel();
+            topPanel.setVisible(true);
+            topPanel.setLayout(new BorderLayout());
+            topPanel.setBackground(Color.WHITE);
+            topPanel.setSize(1200,400);
+
+            bottomPanel = new JPanel();
+            bottomPanel.setVisible(true);
+            bottomPanel.setLayout(null);
+            bottomPanel.setBackground(Color.white);
+            bottomPanel.setSize(1200,400);
+
             JTable jt = new JTable(data, column);
-            jt.setBounds(20, 200, 1000, 400);
+            jt.setSize(950, 400);
             JScrollPane sp = new JScrollPane(jt);
+
             JLabel lblAmount, lblFrom, lblTo, lblresult;
-            lblAmount = new JLabel("Amount: ");
+            lblAmount = new JLabel("Result: ");
             lblAmount.setBounds(50, 50, 100, 30);
             lblFrom = new JLabel("From: ");
             lblFrom.setBounds(50, 80, 100, 30);
             lblTo = new JLabel("To: ");
             lblTo.setBounds(50, 110, 100, 30);
             lblresult = new JLabel("Amount: ");
-            lblresult.setBounds(50, 50, 100, 30);
+            lblresult.setBounds(50, 140, 100, 30) ;
 
             JTextField txtAmount, txtresult;
             txtAmount = new JTextField("");
             txtAmount.setBounds(150, 50, 200, 30);
             txtresult = new JTextField("");
-            txtresult.setBounds(150, 50, 200, 30);
+            txtresult.setBounds(150, 140, 200, 30);
 
 
 //            new version:
@@ -95,15 +115,14 @@ public class GUI {
 
             JButton btnGo;
             btnGo = new JButton("Find: ");
-            btnGo.setBounds(40, 140, 80, 30);
-
-
+            btnGo.setBounds(50, 170, 80, 30);
 
 
 //            new version:
-            f.add("top", topPanel);
-            f.add("bottom", bottomPanel);
-            topPanel.add(jt);
+            f.add(topPanel, BorderLayout.NORTH);
+            f.add(bottomPanel, BorderLayout.SOUTH);
+            topPanel.add(jt, BorderLayout.NORTH);
+            topPanel.add(sp, BorderLayout.WEST);
             bottomPanel.add(lblTo);
             bottomPanel.add(lblFrom);
             bottomPanel.add(lblAmount);
@@ -115,20 +134,6 @@ public class GUI {
             bottomPanel.add(btnGo);
 
 
-
-//                    old version:
-//                    f.add(lblAmount);
-//                    f.add(txtAmount);
-//                    f.add(lblFrom);
-//                    f.add(txtFrom);
-//                    f.add(lblTo);
-//                    f.add(txtTo);
-//                    f.add(btnGo);
-//                    f.add(jt);
-
-                    f.setSize(1200, 900);
-                    f.setLayout(null);
-                    f.setVisible(true);
                     }
 
         catch (Exception e) {
