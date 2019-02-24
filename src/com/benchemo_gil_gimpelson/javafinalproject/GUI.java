@@ -76,7 +76,7 @@ public class GUI {
 
             bottomPanel = new JPanel();
             bottomPanel.setVisible(true);
-            bottomPanel.setLayout(null);
+            bottomPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
             bottomPanel.setBackground(Color.white);
             bottomPanel.setSize(1200,400);
 
