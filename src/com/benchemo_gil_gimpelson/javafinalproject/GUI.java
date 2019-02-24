@@ -1,3 +1,5 @@
+package com.benchemo_gil_gimpelson.javafinalproject;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -7,7 +9,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 
-class GUI {
+public class GUI {
+
     public static void main(String args[]) {
         try {
             File fXmlFile = new File("currency.xml");
@@ -51,52 +54,107 @@ class GUI {
             System.out.println(exchangeRate);
 
 
-            //GUI
 
-            JFrame f = new JFrame("Java Currency");
-            JLabel lblAmount, lblFrom, lblTo;
-            JTextField txtAmount, txtFrom, txtTo;
-            JButton btnGo;
+//            Table tb = new Table();
+            JFrame f = new JFrame("Java Currency App");
 
-            lblAmount = new JLabel("Amount");
-            lblAmount.setBounds(50, 50, 100, 30);
-            txtAmount = new JTextField("");
-            txtAmount.setBounds(150, 50, 200, 30);
-
-            lblFrom = new JLabel("From");
-            lblFrom.setBounds(50, 80, 100, 30);
-            txtFrom = new JTextField("");
-            txtFrom.setBounds(150, 80, 200, 30);
-
-            lblTo = new JLabel("To");
-            lblTo.setBounds(50, 110, 100, 30);
-            txtTo = new JTextField("");
-            txtTo.setBounds(150, 110, 200, 30);
-
-            btnGo = new JButton("Find");
-            btnGo.setBounds(40, 140, 80, 30);
-//https://www.javatpoint.com/java-jtable
+            JPanel bottomPanel, topPanel;
+            bottomPanel = new JPanel();
+            topPanel = new JPanel();
             JTable jt = new JTable(data, column);
             jt.setBounds(20, 200, 1000, 400);
             JScrollPane sp = new JScrollPane(jt);
+            JLabel lblAmount, lblFrom, lblTo, lblresult;
+            lblAmount = new JLabel("Amount: ");
+            lblAmount.setBounds(50, 50, 100, 30);
+            lblFrom = new JLabel("From: ");
+            lblFrom.setBounds(50, 80, 100, 30);
+            lblTo = new JLabel("To: ");
+            lblTo.setBounds(50, 110, 100, 30);
+            lblresult = new JLabel("Amount: ");
+            lblresult.setBounds(50, 50, 100, 30);
 
-            f.add(lblAmount);
-            f.add(txtAmount);
-            f.add(lblFrom);
-            f.add(txtFrom);
-            f.add(lblTo);
-            f.add(txtTo);
-            f.add(btnGo);
-            f.add(jt);
+            JTextField txtAmount, txtresult;
+            txtAmount = new JTextField("");
+            txtAmount.setBounds(150, 50, 200, 30);
+            txtresult = new JTextField("");
+            txtresult.setBounds(150, 50, 200, 30);
 
-            f.setSize(1200, 900);
-            f.setLayout(null);
-            f.setVisible(true);
-        } catch (
-                Exception e) {
+
+//            new version:
+//            JComboBox<String> tocomboBox;
+//            tocomboBox = new JComboBox<>(tb.currCode);
+//            JComboBox<String> fromcomboBox;
+//            fromcomboBox = new JComboBox<>(tb.currCode);
+
+//            old version:
+//            txtFrom = new JTextField("");
+//            txtFrom.setBounds(150, 80, 200, 30);
+//            txtTo = new JTextField("");
+//            txtTo.setBounds(150, 110, 200, 30);
+
+            JButton btnGo;
+            btnGo = new JButton("Find: ");
+            btnGo.setBounds(40, 140, 80, 30);
+
+
+
+
+//            new version:
+            f.add("top", topPanel);
+            f.add("bottom", bottomPanel);
+            topPanel.add(jt);
+            bottomPanel.add(lblTo);
+            bottomPanel.add(lblFrom);
+            bottomPanel.add(lblAmount);
+            bottomPanel.add(txtAmount);
+            bottomPanel.add(lblresult);
+            bottomPanel.add(txtresult);
+//            bottomPanel.add(tocomboBox);
+//            bottomPanel.add(fromcomboBox);
+            bottomPanel.add(btnGo);
+
+
+
+//                    old version:
+//                    f.add(lblAmount);
+//                    f.add(txtAmount);
+//                    f.add(lblFrom);
+//                    f.add(txtFrom);
+//                    f.add(lblTo);
+//                    f.add(txtTo);
+//                    f.add(btnGo);
+//                    f.add(jt);
+
+                    f.setSize(1200, 900);
+                    f.setLayout(null);
+                    f.setVisible(true);
+                    }
+
+        catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

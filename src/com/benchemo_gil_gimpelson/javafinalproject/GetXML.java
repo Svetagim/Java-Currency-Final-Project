@@ -1,4 +1,4 @@
-package XML_Connection;
+package com.benchemo_gil_gimpelson.javafinalproject;
 
 import java.io.IOException;
 import java.net.URL;
