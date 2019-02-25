@@ -60,46 +60,59 @@ public class GUI {
 //            GUI
 
 //            Table tb = new Table();
-            JFrame f = new JFrame("Java Currency App");
+            JFrame f;
+            JPanel bottomPanel, topPanel;
+            JTable jt;
+            JScrollPane sp;
+            GroupLayout layout;
+            JLabel lblAmount, lblFrom, lblTo, lblresult;
+            JTextField txtAmount, txtresult;
+            JButton btnGo;
 
-            f.setSize(1200, 800);
+
+            f = new JFrame("Java Currency App");
+            topPanel = new JPanel();
+            bottomPanel = new JPanel();
+            jt = new JTable(data, column);
+            sp = new JScrollPane(jt);
+            layout= new GroupLayout(bottomPanel);
+            lblAmount = new JLabel("Amount: ");
+            lblFrom = new JLabel("From: ");
+            lblTo = new JLabel("To: ");
+            lblresult = new JLabel("Result: ");
+            txtAmount = new JTextField("");
+            txtresult = new JTextField("");
+            btnGo = new JButton("Go ");
+
+
+
+            f.setSize(1200, 600);
             f.setLayout(new BorderLayout());
             f.setVisible(true);
             f.setBackground(Color.gray);
 
-            JPanel bottomPanel, topPanel;
-            topPanel = new JPanel();
+            topPanel.setSize(1200, 250);
             topPanel.setVisible(true);
             topPanel.setLayout(new BorderLayout());
             topPanel.setBackground(Color.WHITE);
-            topPanel.setSize(1200,400);
 
-            bottomPanel = new JPanel();
+            sp.setPreferredSize(new Dimension(1200, 250));
+
+            bottomPanel.setSize(1200, 400);
             bottomPanel.setVisible(true);
-            bottomPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
-            bottomPanel.setBackground(Color.white);
-            bottomPanel.setSize(1200,400);
+            bottomPanel.setLayout(layout);
+            bottomPanel.setBackground(Color.WHITE);
 
-            JTable jt = new JTable(data, column);
-            jt.setSize(950, 400);
-            JScrollPane sp = new JScrollPane(jt);
+            layout.setAutoCreateGaps(true);
+            layout.setAutoCreateContainerGaps(true);
 
-            JLabel lblAmount, lblFrom, lblTo, lblresult;
-            lblAmount = new JLabel("Result: ");
-            lblAmount.setBounds(50, 50, 100, 30);
-            lblFrom = new JLabel("From: ");
-            lblFrom.setBounds(50, 80, 100, 30);
-            lblTo = new JLabel("To: ");
             lblTo.setBounds(50, 110, 100, 30);
-            lblresult = new JLabel("Amount: ");
+            lblFrom.setBounds(50, 80, 100, 30);
+            lblAmount.setBounds(50, 50, 100, 30);
             lblresult.setBounds(50, 140, 100, 30) ;
 
-            JTextField txtAmount, txtresult;
-            txtAmount = new JTextField("");
             txtAmount.setBounds(150, 50, 200, 30);
-            txtresult = new JTextField("");
             txtresult.setBounds(150, 140, 200, 30);
-
 
 //            new version:
 //            JComboBox<String> tocomboBox;
@@ -113,16 +126,43 @@ public class GUI {
 //            txtTo = new JTextField("");
 //            txtTo.setBounds(150, 110, 200, 30);
 
-            JButton btnGo;
-            btnGo = new JButton("Find: ");
             btnGo.setBounds(50, 170, 80, 30);
 
+            layout.setHorizontalGroup(
+                    layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblTo))
+//                                    .addComponent(tocomboBox)
+                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblFrom))
+//                                    .addComponent(fromcomboBox)
+                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblAmount)
+                                    .addComponent(txtAmount))
+                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblresult)
+                                    .addComponent(txtresult))
+                            .addComponent(btnGo)
+            );
+            layout.setVerticalGroup(
+                    layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblTo)
+                                    .addComponent(lblFrom)
+                                    .addComponent(lblAmount)
+                                    .addComponent(lblresult))
+                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+//                                    .addComponent(tocomboBox)
+//                                    .addComponent(fromcomboBox)
+                                    .addComponent(txtAmount)
+                                    .addComponent(txtresult)
+                                    .addComponent(btnGo))
+            );
 
-//            new version:
+
             f.add(topPanel, BorderLayout.NORTH);
             f.add(bottomPanel, BorderLayout.SOUTH);
-            topPanel.add(jt, BorderLayout.NORTH);
-            topPanel.add(sp, BorderLayout.WEST);
+            topPanel.add(sp, BorderLayout.CENTER);
             bottomPanel.add(lblTo);
             bottomPanel.add(lblFrom);
             bottomPanel.add(lblAmount);
@@ -134,13 +174,25 @@ public class GUI {
             bottomPanel.add(btnGo);
 
 
-                    }
+        }
 
         catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
