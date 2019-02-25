@@ -12,7 +12,7 @@ import java.io.File;
 
 public class GUI {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         GUI gui = new GUI();
     }
 
@@ -75,76 +75,81 @@ public class GUI {
         //            GUI
 //            DECLARING ALL COMPONENTS
 
-//            Table tb = new Table();
+        String currCodeStatic[] = {"USD", "GBP", "JPY", "EUR", "AUD", "CAD", "DKK", "NOK", "ZAR", "SEK", "CHF", "JOD", "LBP", "EGP"};
         JFrame f;
-        JPanel bottomPanel, topPanel;
+        JPanel topPanel, bottomPanel;
         JTable jt;
         JScrollPane sp;
         GroupLayout layout;
         JLabel lblAmount, lblFrom, lblTo, lblresult;
-//            JComboBox<String> tocomboBox;
-//            JComboBox<String> fromcomboBox;
+        JComboBox<String> tocomboBox;
+        JComboBox<String> fromcomboBox;
         JTextField txtAmount, txtresult;
         JButton btnGo;
 
 //            CREATING ALL COMPONENTS
 
         f = new JFrame("Java Currency App");
-        topPanel = new JPanel();
         bottomPanel = new JPanel();
+        topPanel = new JPanel();
         jt = new JTable(data, column);
         sp = new JScrollPane(jt);
-        layout= new GroupLayout(bottomPanel);
+        layout= new GroupLayout(topPanel);
         lblAmount = new JLabel("Amount: ");
         lblFrom = new JLabel("From: ");
         lblTo = new JLabel("To: ");
         lblresult = new JLabel("Result: ");
-//            tocomboBox = new JComboBox<>(tb.currCode);
-//            fromcomboBox = new JComboBox<>(tb.currCode);
+        tocomboBox = new JComboBox<>(currCodeStatic);
+        fromcomboBox = new JComboBox<>(currCodeStatic);
         txtAmount = new JTextField("");
         txtresult = new JTextField("");
         btnGo = new JButton("Go ");
 
 //            PROPERTIES OF ALL COMPONENTS
 
-        f.setSize(1200, 600);
+        f.setSize(1200, 380);
         f.setLayout(new BorderLayout());
         f.setVisible(true);
-        f.setBackground(Color.gray);
+        f.setBackground(Color.GRAY);
 
-        topPanel.setSize(1200, 250);
-        topPanel.setVisible(true);
-        topPanel.setLayout(new BorderLayout());
-        topPanel.setBackground(Color.WHITE);
+        bottomPanel.setSize(1200, 250);
+        bottomPanel.setVisible(true);
+        bottomPanel.setLayout(new BorderLayout());
+        bottomPanel.setBackground(Color.WHITE);
+        bottomPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
         sp.setPreferredSize(new Dimension(1200, 250));
 
-        bottomPanel.setSize(1200, 400);
-        bottomPanel.setVisible(true);
-        bottomPanel.setLayout(layout);
-        bottomPanel.setBackground(Color.WHITE);
+        topPanel.setSize(1200, 400);
+        topPanel.setVisible(true);
+        topPanel.setLayout(layout);
+        topPanel.setBackground(Color.WHITE);
+        topPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
         layout.setAutoCreateGaps(true);
         layout.setAutoCreateContainerGaps(true);
 
-        lblTo.setBounds(50, 110, 100, 30);
-        lblFrom.setBounds(50, 80, 100, 30);
-        lblAmount.setBounds(50, 50, 100, 30);
-        lblresult.setBounds(50, 140, 100, 30) ;
+        lblTo.setSize(100, 30);
+        lblFrom.setSize(100, 30);
+        lblAmount.setSize(100, 30);
+        lblresult.setSize(100, 30) ;
 
-        txtAmount.setBounds(150, 50, 200, 30);
-        txtresult.setBounds(150, 140, 200, 30);
+        txtAmount.setSize(200, 30);
+        txtresult.setSize(200, 30);
 
-        btnGo.setBounds(50, 170, 80, 30);
+        fromcomboBox.setSize(200, 30);
+        tocomboBox.setSize(200, 30);
+
+        btnGo.setSize(80, 30);
 
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(lblTo))
-//                                    .addComponent(tocomboBox)
+                                .addComponent(tocomboBox)
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(lblFrom))
-//                                    .addComponent(fromcomboBox)
+                                .addComponent(fromcomboBox)
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(lblAmount)
                                 .addComponent(txtAmount))
@@ -161,8 +166,8 @@ public class GUI {
                                 .addComponent(lblAmount)
                                 .addComponent(lblresult))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-//                                    .addComponent(tocomboBox)
-//                                    .addComponent(fromcomboBox)
+                                .addComponent(tocomboBox)
+                                .addComponent(fromcomboBox)
                                 .addComponent(txtAmount)
                                 .addComponent(txtresult)
                                 .addComponent(btnGo))
@@ -171,18 +176,18 @@ public class GUI {
 
 //            ADDING ALL COMPONENTS TO CONTAINERS
 
-        f.add(topPanel, BorderLayout.NORTH);
         f.add(bottomPanel, BorderLayout.SOUTH);
-        topPanel.add(sp, BorderLayout.CENTER);
-        bottomPanel.add(lblTo);
-        bottomPanel.add(lblFrom);
-        bottomPanel.add(lblAmount);
-        bottomPanel.add(txtAmount);
-        bottomPanel.add(lblresult);
-        bottomPanel.add(txtresult);
-//            bottomPanel.add(tocomboBox);
-//            bottomPanel.add(fromcomboBox);
-        bottomPanel.add(btnGo);
+        f.add(topPanel, BorderLayout.CENTER);
+        bottomPanel.add(sp, BorderLayout.CENTER);
+        topPanel.add(lblTo);
+        topPanel.add(lblFrom);
+        topPanel.add(lblAmount);
+        topPanel.add(txtAmount);
+        topPanel.add(lblresult);
+        topPanel.add(txtresult);
+        topPanel.add(tocomboBox);
+        topPanel.add(fromcomboBox);
+        topPanel.add(btnGo);
     }
 }
 
