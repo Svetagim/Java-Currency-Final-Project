@@ -8,7 +8,7 @@ import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.awt.*;
-import java.io.File;
+import java.io.*;
 
 public class GUI {
 
@@ -188,6 +188,18 @@ public class GUI {
         topPanel.add(tocomboBox);
         topPanel.add(fromcomboBox);
         topPanel.add(btnGo);
+    }
+    public static void log_msg(String msg){
+        String fileName = "log.txt";
+        try {
+            // Open given file in append mode.
+            BufferedWriter out = new BufferedWriter(new FileWriter(fileName, true));
+            out.write(msg);
+            out.close();
+        }
+        catch (IOException e) {
+            System.out.println("exception occoured" + e);
+        }
     }
 }
 
