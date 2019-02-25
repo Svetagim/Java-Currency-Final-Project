@@ -58,6 +58,7 @@ public class GUI {
 
 
 //            GUI
+//            DECLARING ALL COMPONENTS
 
 //            Table tb = new Table();
             JFrame f;
@@ -66,9 +67,12 @@ public class GUI {
             JScrollPane sp;
             GroupLayout layout;
             JLabel lblAmount, lblFrom, lblTo, lblresult;
+//            JComboBox<String> tocomboBox;
+//            JComboBox<String> fromcomboBox;
             JTextField txtAmount, txtresult;
             JButton btnGo;
 
+//            CREATING ALL COMPONENTS
 
             f = new JFrame("Java Currency App");
             topPanel = new JPanel();
@@ -80,11 +84,13 @@ public class GUI {
             lblFrom = new JLabel("From: ");
             lblTo = new JLabel("To: ");
             lblresult = new JLabel("Result: ");
+//            tocomboBox = new JComboBox<>(tb.currCode);
+//            fromcomboBox = new JComboBox<>(tb.currCode);
             txtAmount = new JTextField("");
             txtresult = new JTextField("");
             btnGo = new JButton("Go ");
 
-
+//            PROPERTIES OF ALL COMPONENTS
 
             f.setSize(1200, 600);
             f.setLayout(new BorderLayout());
@@ -113,18 +119,6 @@ public class GUI {
 
             txtAmount.setBounds(150, 50, 200, 30);
             txtresult.setBounds(150, 140, 200, 30);
-
-//            new version:
-//            JComboBox<String> tocomboBox;
-//            tocomboBox = new JComboBox<>(tb.currCode);
-//            JComboBox<String> fromcomboBox;
-//            fromcomboBox = new JComboBox<>(tb.currCode);
-
-//            old version:
-//            txtFrom = new JTextField("");
-//            txtFrom.setBounds(150, 80, 200, 30);
-//            txtTo = new JTextField("");
-//            txtTo.setBounds(150, 110, 200, 30);
 
             btnGo.setBounds(50, 170, 80, 30);
 
@@ -159,6 +153,8 @@ public class GUI {
                                     .addComponent(btnGo))
             );
 
+
+//            ADDING ALL COMPONENTS TO CONTAINERS
 
             f.add(topPanel, BorderLayout.NORTH);
             f.add(bottomPanel, BorderLayout.SOUTH);

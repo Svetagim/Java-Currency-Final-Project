@@ -17,10 +17,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="161" lean-forward="true" selection-start-line="161" selection-end-line="161" />
+            <state relative-caret-position="-2079">
+              <caret line="64" column="7" lean-forward="true" selection-start-line="64" selection-start-column="7" selection-end-line="64" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1551091733660" expanded="true" signature="6682:6719" ph="..." />
+                <marker date="1551091733660" expanded="true" signature="6684:6718" ph="..." />
               </folding>
             </state>
           </provider>
@@ -178,7 +180,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551090423838" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551091733774" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -273,12 +275,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1547737234815</updated>
-      <workItem from="1551033145944" duration="7005000" />
+      <workItem from="1551033145944" duration="8288000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22343000" />
+    <option name="totallyTimeSpent" value="23626000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -412,10 +414,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="161" lean-forward="true" selection-start-line="161" selection-end-line="161" />
+        <state relative-caret-position="-2079">
+          <caret line="64" column="7" lean-forward="true" selection-start-line="64" selection-start-column="7" selection-end-line="64" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1551091733660" expanded="true" signature="6682:6719" ph="..." />
+            <marker date="1551091733660" expanded="true" signature="6684:6718" ph="..." />
           </folding>
         </state>
       </provider>
