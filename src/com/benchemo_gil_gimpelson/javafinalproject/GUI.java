@@ -55,8 +55,6 @@ public class GUI {
             System.out.println(exchangeRate);
 
 
-
-
 //            GUI
 //            DECLARING ALL COMPONENTS
 
