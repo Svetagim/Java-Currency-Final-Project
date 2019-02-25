@@ -18,6 +18,7 @@ public class GUI {
 
     private String column[] = {"NAME", "UNIT", "CURRENCYCODE", "COUNTRY", "RATE", "CHANGE"};
     private String data[][];
+    private String code[];
 
     private GUI()
     {
@@ -33,6 +34,7 @@ public class GUI {
             Document docLocal = dBuilder.parse(fXmlFile);
             NodeList nList = docLocal.getElementsByTagName("CURRENCY");
             this.data = new String[nList.getLength()][6];
+            this.code = new String[nList.getLength()];
             for (int i = 0; i < nList.getLength(); i++) {
                 Node nNode = nList.item(i);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -43,6 +45,7 @@ public class GUI {
                     data[i][3] = eElement.getElementsByTagName("COUNTRY").item(0).getTextContent();
                     data[i][4] = eElement.getElementsByTagName("RATE").item(0).getTextContent();
                     data[i][5] = eElement.getElementsByTagName("CHANGE").item(0).getTextContent();
+                    code[i] = eElement.getElementsByTagName("CURRENCYCODE").item(0).getTextContent();
                 }
             }
 
@@ -74,8 +77,7 @@ public class GUI {
     {
         //            GUI
 //            DECLARING ALL COMPONENTS
-
-        String currCodeStatic[] = {"USD", "GBP", "JPY", "EUR", "AUD", "CAD", "DKK", "NOK", "ZAR", "SEK", "CHF", "JOD", "LBP", "EGP"};
+        
         JFrame f;
         JPanel topPanel, bottomPanel;
         JTable jt;
@@ -99,8 +101,8 @@ public class GUI {
         lblFrom = new JLabel("From: ");
         lblTo = new JLabel("To: ");
         lblresult = new JLabel("Result: ");
-        tocomboBox = new JComboBox<>(currCodeStatic);
-        fromcomboBox = new JComboBox<>(currCodeStatic);
+        tocomboBox = new JComboBox<>(code);
+        fromcomboBox = new JComboBox<>(code);
         txtAmount = new JTextField("");
         txtresult = new JTextField("");
         btnGo = new JButton("Go ");
