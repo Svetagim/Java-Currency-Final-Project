@@ -13,13 +13,26 @@ import java.io.File;
 public class GUI {
 
     public static void main(String args[]) {
-        try {
+        GUI gui = new GUI();
+    }
+
+    private String column[] = {"NAME", "UNIT", "CURRENCYCODE", "COUNTRY", "RATE", "CHANGE"};
+    private String data[][];
+
+    private GUI()
+    {
+        parseXMLfile();
+        BuildGUI();
+    }
+    private void parseXMLfile()
+    {
+        try{
             File fXmlFile = new File("currency.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document docLocal = dBuilder.parse(fXmlFile);
             NodeList nList = docLocal.getElementsByTagName("CURRENCY");
-            String data[][] = new String[nList.getLength()][6];
+            this.data = new String[nList.getLength()][6];
             for (int i = 0; i < nList.getLength(); i++) {
                 Node nNode = nList.item(i);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -32,7 +45,6 @@ public class GUI {
                     data[i][5] = eElement.getElementsByTagName("CHANGE").item(0).getTextContent();
                 }
             }
-            String column[] = {"NAME", "UNIT", "CURRENCYCODE", "COUNTRY", "RATE", "CHANGE"};
 
             //Rate exchange
 
@@ -53,126 +65,124 @@ public class GUI {
 
             exchangeRate = (fromRate/toRate)*(toUnit/fromUnit)*ammount;
             System.out.println(exchangeRate);
-
-
-//            GUI
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private void BuildGUI()
+    {
+        //            GUI
 //            DECLARING ALL COMPONENTS
 
 //            Table tb = new Table();
-            JFrame f;
-            JPanel bottomPanel, topPanel;
-            JTable jt;
-            JScrollPane sp;
-            GroupLayout layout;
-            JLabel lblAmount, lblFrom, lblTo, lblresult;
+        JFrame f;
+        JPanel bottomPanel, topPanel;
+        JTable jt;
+        JScrollPane sp;
+        GroupLayout layout;
+        JLabel lblAmount, lblFrom, lblTo, lblresult;
 //            JComboBox<String> tocomboBox;
 //            JComboBox<String> fromcomboBox;
-            JTextField txtAmount, txtresult;
-            JButton btnGo;
+        JTextField txtAmount, txtresult;
+        JButton btnGo;
 
 //            CREATING ALL COMPONENTS
 
-            f = new JFrame("Java Currency App");
-            topPanel = new JPanel();
-            bottomPanel = new JPanel();
-            jt = new JTable(data, column);
-            sp = new JScrollPane(jt);
-            layout= new GroupLayout(bottomPanel);
-            lblAmount = new JLabel("Amount: ");
-            lblFrom = new JLabel("From: ");
-            lblTo = new JLabel("To: ");
-            lblresult = new JLabel("Result: ");
+        f = new JFrame("Java Currency App");
+        topPanel = new JPanel();
+        bottomPanel = new JPanel();
+        jt = new JTable(data, column);
+        sp = new JScrollPane(jt);
+        layout= new GroupLayout(bottomPanel);
+        lblAmount = new JLabel("Amount: ");
+        lblFrom = new JLabel("From: ");
+        lblTo = new JLabel("To: ");
+        lblresult = new JLabel("Result: ");
 //            tocomboBox = new JComboBox<>(tb.currCode);
 //            fromcomboBox = new JComboBox<>(tb.currCode);
-            txtAmount = new JTextField("");
-            txtresult = new JTextField("");
-            btnGo = new JButton("Go ");
+        txtAmount = new JTextField("");
+        txtresult = new JTextField("");
+        btnGo = new JButton("Go ");
 
 //            PROPERTIES OF ALL COMPONENTS
 
-            f.setSize(1200, 600);
-            f.setLayout(new BorderLayout());
-            f.setVisible(true);
-            f.setBackground(Color.gray);
+        f.setSize(1200, 600);
+        f.setLayout(new BorderLayout());
+        f.setVisible(true);
+        f.setBackground(Color.gray);
 
-            topPanel.setSize(1200, 250);
-            topPanel.setVisible(true);
-            topPanel.setLayout(new BorderLayout());
-            topPanel.setBackground(Color.WHITE);
+        topPanel.setSize(1200, 250);
+        topPanel.setVisible(true);
+        topPanel.setLayout(new BorderLayout());
+        topPanel.setBackground(Color.WHITE);
 
-            sp.setPreferredSize(new Dimension(1200, 250));
+        sp.setPreferredSize(new Dimension(1200, 250));
 
-            bottomPanel.setSize(1200, 400);
-            bottomPanel.setVisible(true);
-            bottomPanel.setLayout(layout);
-            bottomPanel.setBackground(Color.WHITE);
+        bottomPanel.setSize(1200, 400);
+        bottomPanel.setVisible(true);
+        bottomPanel.setLayout(layout);
+        bottomPanel.setBackground(Color.WHITE);
 
-            layout.setAutoCreateGaps(true);
-            layout.setAutoCreateContainerGaps(true);
+        layout.setAutoCreateGaps(true);
+        layout.setAutoCreateContainerGaps(true);
 
-            lblTo.setBounds(50, 110, 100, 30);
-            lblFrom.setBounds(50, 80, 100, 30);
-            lblAmount.setBounds(50, 50, 100, 30);
-            lblresult.setBounds(50, 140, 100, 30) ;
+        lblTo.setBounds(50, 110, 100, 30);
+        lblFrom.setBounds(50, 80, 100, 30);
+        lblAmount.setBounds(50, 50, 100, 30);
+        lblresult.setBounds(50, 140, 100, 30) ;
 
-            txtAmount.setBounds(150, 50, 200, 30);
-            txtresult.setBounds(150, 140, 200, 30);
+        txtAmount.setBounds(150, 50, 200, 30);
+        txtresult.setBounds(150, 140, 200, 30);
 
-            btnGo.setBounds(50, 170, 80, 30);
+        btnGo.setBounds(50, 170, 80, 30);
 
-            layout.setHorizontalGroup(
-                    layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblTo))
+        layout.setHorizontalGroup(
+                layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                .addComponent(lblTo))
 //                                    .addComponent(tocomboBox)
-                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblFrom))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                .addComponent(lblFrom))
 //                                    .addComponent(fromcomboBox)
-                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblAmount)
-                                    .addComponent(txtAmount))
-                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblresult)
-                                    .addComponent(txtresult))
-                            .addComponent(btnGo)
-            );
-            layout.setVerticalGroup(
-                    layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblTo)
-                                    .addComponent(lblFrom)
-                                    .addComponent(lblAmount)
-                                    .addComponent(lblresult))
-                            .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                .addComponent(lblAmount)
+                                .addComponent(txtAmount))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                .addComponent(lblresult)
+                                .addComponent(txtresult))
+                        .addComponent(btnGo)
+        );
+        layout.setVerticalGroup(
+                layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblTo)
+                                .addComponent(lblFrom)
+                                .addComponent(lblAmount)
+                                .addComponent(lblresult))
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 //                                    .addComponent(tocomboBox)
 //                                    .addComponent(fromcomboBox)
-                                    .addComponent(txtAmount)
-                                    .addComponent(txtresult)
-                                    .addComponent(btnGo))
-            );
+                                .addComponent(txtAmount)
+                                .addComponent(txtresult)
+                                .addComponent(btnGo))
+        );
 
 
 //            ADDING ALL COMPONENTS TO CONTAINERS
 
-            f.add(topPanel, BorderLayout.NORTH);
-            f.add(bottomPanel, BorderLayout.SOUTH);
-            topPanel.add(sp, BorderLayout.CENTER);
-            bottomPanel.add(lblTo);
-            bottomPanel.add(lblFrom);
-            bottomPanel.add(lblAmount);
-            bottomPanel.add(txtAmount);
-            bottomPanel.add(lblresult);
-            bottomPanel.add(txtresult);
+        f.add(topPanel, BorderLayout.NORTH);
+        f.add(bottomPanel, BorderLayout.SOUTH);
+        topPanel.add(sp, BorderLayout.CENTER);
+        bottomPanel.add(lblTo);
+        bottomPanel.add(lblFrom);
+        bottomPanel.add(lblAmount);
+        bottomPanel.add(txtAmount);
+        bottomPanel.add(lblresult);
+        bottomPanel.add(txtresult);
 //            bottomPanel.add(tocomboBox);
 //            bottomPanel.add(fromcomboBox);
-            bottomPanel.add(btnGo);
-
-
-        }
-
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        bottomPanel.add(btnGo);
     }
 }
 
