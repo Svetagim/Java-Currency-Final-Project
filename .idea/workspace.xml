@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3d634a80-f6f9-410f-8e6c-3320b63eb298" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/final_project/com/benchemo_gil_gimpelson/javafinalproject/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/final_project/com/benchemo_gil_gimpelson/javafinalproject/GUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/final_project/com/benchemo_gil_gimpelson/javafinalproject/Observer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/final_project/com/benchemo_gil_gimpelson/javafinalproject/Observer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/final_project/com/benchemo_gil_gimpelson/javafinalproject/TestThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/final_project/com/benchemo_gil_gimpelson/javafinalproject/TestThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Observer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,25 +17,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1122">
-              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+            <state relative-caret-position="102">
+              <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#382#383#0" expanded="true" />
                 <element signature="e#417#418#0" expanded="true" />
+                <element signature="method#BuildGUI#0;class#GUI#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Observer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="111">
+              <caret line="125" column="17" lean-forward="true" selection-start-line="125" selection-start-column="17" selection-end-line="125" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -50,7 +57,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GetXML.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="247">
-              <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+              <caret line="22" column="8" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="110" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,10 +110,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1778" />
-    <option name="y" value="-28" />
-    <option name="width" value="1440" />
-    <option name="height" value="793" />
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -145,7 +151,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551116658687" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551126395893" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -284,7 +290,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290993" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.16855524" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16855524" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -363,7 +369,17 @@
     <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GetXML.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
-          <caret line="25" column="14" lean-forward="true" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
+          <caret line="22" column="8" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="110" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Observer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="125" column="17" lean-forward="true" selection-start-line="125" selection-start-column="17" selection-end-line="125" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -372,20 +388,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1122">
-          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        <state relative-caret-position="102">
+          <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#382#383#0" expanded="true" />
             <element signature="e#417#418#0" expanded="true" />
+            <element signature="method#BuildGUI#0;class#GUI#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Observer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
