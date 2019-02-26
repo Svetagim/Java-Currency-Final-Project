@@ -9,24 +9,22 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.awt.*;
 import java.io.*;
+import java.util.Observer;
+import java.util.Observable;
 
-public class GUI {
-
-    public static void main(String[] args) {
-        GUI gui = new GUI();
-    }
+public class GUI implements Observer {
 
     private String column[] = {"NAME", "UNIT", "CURRENCYCODE", "COUNTRY", "RATE", "CHANGE"};
     private String data[][];
-    private String code[];
+    private boolean xmlupdated=false; //false = XML is outdated, true = XML is updated
 
-    private GUI()
+    public GUI()
     {
         parseXMLfile();
         BuildGUI();
     }
-    private void parseXMLfile()
-    {
+
+    public void parseXMLfile() {
         try{
             File fXmlFile = new File("currency.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -34,7 +32,6 @@ public class GUI {
             Document docLocal = dBuilder.parse(fXmlFile);
             NodeList nList = docLocal.getElementsByTagName("CURRENCY");
             this.data = new String[nList.getLength()][6];
-            this.code = new String[nList.getLength()];
             for (int i = 0; i < nList.getLength(); i++) {
                 Node nNode = nList.item(i);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -45,7 +42,6 @@ public class GUI {
                     data[i][3] = eElement.getElementsByTagName("COUNTRY").item(0).getTextContent();
                     data[i][4] = eElement.getElementsByTagName("RATE").item(0).getTextContent();
                     data[i][5] = eElement.getElementsByTagName("CHANGE").item(0).getTextContent();
-                    code[i] = eElement.getElementsByTagName("CURRENCYCODE").item(0).getTextContent();
                 }
             }
 
@@ -73,85 +69,80 @@ public class GUI {
             e.printStackTrace();
         }
     }
-    private void BuildGUI()
-    {
+    public void BuildGUI() {
         //            GUI
 //            DECLARING ALL COMPONENTS
-        
+
+//            Table tb = new Table();
         JFrame f;
-        JPanel topPanel, bottomPanel;
+        JPanel bottomPanel, topPanel;
         JTable jt;
         JScrollPane sp;
         GroupLayout layout;
         JLabel lblAmount, lblFrom, lblTo, lblresult;
-        JComboBox<String> tocomboBox;
-        JComboBox<String> fromcomboBox;
+//            JComboBox<String> tocomboBox;
+//            JComboBox<String> fromcomboBox;
         JTextField txtAmount, txtresult;
         JButton btnGo;
 
 //            CREATING ALL COMPONENTS
 
         f = new JFrame("Java Currency App");
-        bottomPanel = new JPanel();
         topPanel = new JPanel();
+        bottomPanel = new JPanel();
         jt = new JTable(data, column);
         sp = new JScrollPane(jt);
-        layout= new GroupLayout(topPanel);
+        layout= new GroupLayout(bottomPanel);
         lblAmount = new JLabel("Amount: ");
         lblFrom = new JLabel("From: ");
         lblTo = new JLabel("To: ");
         lblresult = new JLabel("Result: ");
-        tocomboBox = new JComboBox<>(code);
-        fromcomboBox = new JComboBox<>(code);
+//            tocomboBox = new JComboBox<>(tb.currCode);
+//            fromcomboBox = new JComboBox<>(tb.currCode);
         txtAmount = new JTextField("");
         txtresult = new JTextField("");
         btnGo = new JButton("Go ");
 
 //            PROPERTIES OF ALL COMPONENTS
 
-        f.setSize(1200, 380);
+        f.setSize(1200, 600);
         f.setLayout(new BorderLayout());
         f.setVisible(true);
-        f.setBackground(Color.GRAY);
+        f.setBackground(Color.gray);
 
-        bottomPanel.setSize(1200, 250);
-        bottomPanel.setVisible(true);
-        bottomPanel.setLayout(new BorderLayout());
-        bottomPanel.setBackground(Color.WHITE);
-        bottomPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+        topPanel.setSize(1200, 250);
+        topPanel.setVisible(true);
+        topPanel.setLayout(new BorderLayout());
+        topPanel.setBackground(Color.WHITE);
 
         sp.setPreferredSize(new Dimension(1200, 250));
 
-        topPanel.setSize(1200, 400);
-        topPanel.setVisible(true);
-        topPanel.setLayout(layout);
-        topPanel.setBackground(Color.WHITE);
-        topPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+        bottomPanel.setSize(1200, 400);
+        bottomPanel.setVisible(true);
+        bottomPanel.setLayout(layout);
+        bottomPanel.setBackground(Color.WHITE);
 
         layout.setAutoCreateGaps(true);
         layout.setAutoCreateContainerGaps(true);
 
-        lblTo.setSize(100, 30);
-        lblFrom.setSize(100, 30);
-        lblAmount.setSize(100, 30);
-        lblresult.setSize(100, 30) ;
+        lblTo.setBounds(50, 110, 100, 30);
+        lblFrom.setBounds(50, 80, 100, 30);
+        lblAmount.setBounds(50, 50, 100, 30);
+        lblresult.setBounds(50, 140, 100, 30) ;
 
-        txtAmount.setSize(200, 30);
-        txtresult.setSize(200, 30);
+        txtAmount.setBounds(150, 50, 200, 30);
+        txtresult.setBounds(150, 140, 200, 30);
 
-        fromcomboBox.setSize(200, 30);
-        tocomboBox.setSize(200, 30);
-
-        btnGo.setSize(80, 30);
+        btnGo.setBounds(50, 170, 80, 30);
 
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(lblTo))
-                                .addComponent(tocomboBox)
+//                                    .addComponent(tocomboBox)
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(lblFrom))
-                                .addComponent(fromcomboBox)
+//                                    .addComponent(fromcomboBox)
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(lblAmount)
                                 .addComponent(txtAmount))
@@ -168,8 +159,8 @@ public class GUI {
                                 .addComponent(lblAmount)
                                 .addComponent(lblresult))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(tocomboBox)
-                                .addComponent(fromcomboBox)
+//                                    .addComponent(tocomboBox)
+//                                    .addComponent(fromcomboBox)
                                 .addComponent(txtAmount)
                                 .addComponent(txtresult)
                                 .addComponent(btnGo))
@@ -178,30 +169,55 @@ public class GUI {
 
 //            ADDING ALL COMPONENTS TO CONTAINERS
 
+        f.add(topPanel, BorderLayout.NORTH);
         f.add(bottomPanel, BorderLayout.SOUTH);
-        f.add(topPanel, BorderLayout.CENTER);
-        bottomPanel.add(sp, BorderLayout.CENTER);
-        topPanel.add(lblTo);
-        topPanel.add(lblFrom);
-        topPanel.add(lblAmount);
-        topPanel.add(txtAmount);
-        topPanel.add(lblresult);
-        topPanel.add(txtresult);
-        topPanel.add(tocomboBox);
-        topPanel.add(fromcomboBox);
-        topPanel.add(btnGo);
+        topPanel.add(sp, BorderLayout.CENTER);
+        bottomPanel.add(lblTo);
+        bottomPanel.add(lblFrom);
+        bottomPanel.add(lblAmount);
+        bottomPanel.add(txtAmount);
+        bottomPanel.add(lblresult);
+        bottomPanel.add(txtresult);
+//            bottomPanel.add(tocomboBox);
+//            bottomPanel.add(fromcomboBox);
+        bottomPanel.add(btnGo);
     }
-    public static void log_msg(String msg){
+    public boolean GetXMLUpdate()
+    {
+        return xmlupdated;
+    }
+    public void SetXMLUpdate(boolean xmlupdated)
+    {
+        this.xmlupdated=xmlupdated;
+    }
+    public static void log_msg(String msg) {
         String fileName = "log.txt";
         try {
             // Open given file in append mode.
             BufferedWriter out = new BufferedWriter(new FileWriter(fileName, true));
-            out.write(msg);
+            out.write(msg+"\n");
             out.close();
         }
         catch (IOException e) {
             System.out.println("exception occoured" + e);
         }
+    }
+
+    public static void main(String args[]) {
+        Watcher watched_value = new Watcher(false);
+        GUI gui = new GUI();
+        watched_value.addObserver(gui);
+        watched_value.setValue();
+        while(true){
+            if(watched_value.hasChanged())
+            {
+                gui = new GUI();
+            }
+        }
+    }
+    public void update(Observable obj, Object arg)
+    {
+        System.out.println("test");
     }
 }
 
