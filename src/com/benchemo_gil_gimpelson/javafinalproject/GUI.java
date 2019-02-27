@@ -39,6 +39,13 @@ public class GUI implements ActionListener {
 //            CREATING ALL COMPONENTS
 
         f = new JFrame("Java Currency App");
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
+        int windowWidth = 1200;
+        int windowHeight = 600;
+        f.setBounds(center.x - windowWidth / 2, center.y - windowHeight / 2, windowWidth,
+                windowHeight);
+
         topPanel = new JPanel();
         bottomPanel = new JPanel();
         jt = new JTable(data, column);
@@ -61,6 +68,9 @@ public class GUI implements ActionListener {
         lblstatus.setSize(200,30);
 
 //            PROPERTIES OF ALL COMPONENTS
+
+        f.revalidate();
+        f.repaint();
 
         f.setSize(1200, 600);
         f.setLayout(new BorderLayout());
@@ -140,6 +150,10 @@ public class GUI implements ActionListener {
         bottomPanel.add(btnGo);
     }
 
+    public void setColumn(String[] column) {
+        this.column = column;
+    }
+
     public JButton getBtnRefresh() {
         return btnRefresh;
     }
@@ -147,7 +161,6 @@ public class GUI implements ActionListener {
     public void setStatus(String text) {
         lblstatus.setText(text);
         lblstatus.setVisible(true);
-        System.out.println("TEST");
     }
 
     public void parseXMLfile() {
@@ -200,7 +213,8 @@ public class GUI implements ActionListener {
     public void actionPerformed(ActionEvent e)
     {
         f.dispatchEvent(new WindowEvent(f, WindowEvent.WINDOW_CLOSING));
-        System.out.println("TEST");
+        parseXMLfile();
+        BuildGUI();
     }
 
     public static void log_msg(String msg) {
