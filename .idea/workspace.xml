@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d634a80-f6f9-410f-8e6c-3320b63eb298" name="Default Changelist" comment="Observer" />
+    <list default="true" id="3d634a80-f6f9-410f-8e6c-3320b63eb298" name="Default Changelist" comment="Observer">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Observer.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,7 +14,31 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <element signature="method#BuildGUI#0;class#GUI#0" />
+                <element signature="method#parseXMLfile#0;class#GUI#0" />
+                <element signature="method#log_msg#0;class#GUI#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Observer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="108" column="22" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -53,15 +81,15 @@
         <option value="$PROJECT_DIR$/src/GUI.java" />
         <option value="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/curr_code.java" />
         <option value="$PROJECT_DIR$/../uri/finalproject/Table.java" />
-        <option value="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Observer.java" />
         <option value="$PROJECT_DIR$/currency.xml" />
-        <option value="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java" />
         <option value="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Watcher.java" />
+        <option value="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java" />
+        <option value="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Observer.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="23" />
+    <option name="y" value="22" />
     <option name="width" value="1440" />
     <option name="height" value="795" />
   </component>
@@ -70,6 +98,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -93,13 +122,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551292533287" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551300229463" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -240,8 +268,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" x="-1073" y="143" width="226" height="753" id="Project" order="0" sideWeight="0.49888888" visible="true" weight="0.36510068" />
+      <window_info active="true" content_ui="combo" x="-1073" y="143" width="226" height="753" id="Project" order="0" sideWeight="0.49888888" visible="true" weight="0.3704698" />
       <window_info id="Structure" order="1" sideWeight="0.5011111" side_tool="true" weight="0.120469086" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -323,23 +352,22 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Watcher.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java">
+    <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Observer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="661">
-          <caret line="163" column="20" selection-start-line="163" selection-start-column="20" selection-end-line="163" selection-end-column="20" />
-          <folding>
-            <element signature="e#7326#7327#0" expanded="true" />
-            <element signature="e#7359#7360#0" expanded="true" />
-            <element signature="e#7414#7415#0" expanded="true" />
-            <element signature="e#7456#7457#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="570">
+          <caret line="108" column="22" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Observer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="50" column="20" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="20" />
+        <state relative-caret-position="153">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="method#BuildGUI#0;class#GUI#0" />
+            <element signature="method#parseXMLfile#0;class#GUI#0" />
+            <element signature="method#log_msg#0;class#GUI#0" />
+          </folding>
         </state>
       </provider>
     </entry>

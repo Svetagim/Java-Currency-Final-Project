@@ -81,7 +81,7 @@ public class Observer extends Thread{
                                 fout.close();
                             }
                         }
-                        screen.getBtnRefresh().doClick();
+                        //screen.getBtnRefresh().doClick();
                         GUI.log_msg("- Local file is now updated");
                     }
                     else {
@@ -106,7 +106,7 @@ public class Observer extends Thread{
                     }
                 }
                 try {
-                    screen.setStatus("Last check: " + ft.format(dNow));
+                    //screen.setStatus("Last check: " + ft.format(dNow));
                     Thread.sleep(9000);
                 }
                 catch (InterruptedException e)
