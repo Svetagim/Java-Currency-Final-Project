@@ -16,6 +16,7 @@ public class GUI implements Observer {
 
     private String column[] = {"NAME", "UNIT", "CURRENCYCODE", "COUNTRY", "RATE", "CHANGE"};
     private String data[][];
+    private String code[];
     private boolean xmlupdated=false; //false = XML is outdated, true = XML is updated
 
     public GUI()
@@ -32,6 +33,7 @@ public class GUI implements Observer {
             Document docLocal = dBuilder.parse(fXmlFile);
             NodeList nList = docLocal.getElementsByTagName("CURRENCY");
             this.data = new String[nList.getLength()][6];
+            this.code = new String[nList.getLength()];
             for (int i = 0; i < nList.getLength(); i++) {
                 Node nNode = nList.item(i);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -42,6 +44,7 @@ public class GUI implements Observer {
                     data[i][3] = eElement.getElementsByTagName("COUNTRY").item(0).getTextContent();
                     data[i][4] = eElement.getElementsByTagName("RATE").item(0).getTextContent();
                     data[i][5] = eElement.getElementsByTagName("CHANGE").item(0).getTextContent();
+                    code[i] = eElement.getElementsByTagName("CURRENCYCODE").item(0).getTextContent();
                 }
             }
 
@@ -69,19 +72,19 @@ public class GUI implements Observer {
             e.printStackTrace();
         }
     }
+
     public void BuildGUI() {
         //            GUI
 //            DECLARING ALL COMPONENTS
 
-//            Table tb = new Table();
         JFrame f;
         JPanel bottomPanel, topPanel;
         JTable jt;
         JScrollPane sp;
         GroupLayout layout;
         JLabel lblAmount, lblFrom, lblTo, lblresult;
-//            JComboBox<String> tocomboBox;
-//            JComboBox<String> fromcomboBox;
+        JComboBox<String> tocomboBox;
+        JComboBox<String> fromcomboBox;
         JTextField txtAmount, txtresult;
         JButton btnGo;
 
@@ -97,8 +100,8 @@ public class GUI implements Observer {
         lblFrom = new JLabel("From: ");
         lblTo = new JLabel("To: ");
         lblresult = new JLabel("Result: ");
-//            tocomboBox = new JComboBox<>(tb.currCode);
-//            fromcomboBox = new JComboBox<>(tb.currCode);
+        tocomboBox = new JComboBox<>(code);
+        fromcomboBox = new JComboBox<>(code);
         txtAmount = new JTextField("");
         txtresult = new JTextField("");
         btnGo = new JButton("Go ");
@@ -139,10 +142,10 @@ public class GUI implements Observer {
                 layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(lblTo))
-//                                    .addComponent(tocomboBox)
+                                .addComponent(tocomboBox)
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(lblFrom))
-//                                    .addComponent(fromcomboBox)
+                                .addComponent(fromcomboBox)
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(lblAmount)
                                 .addComponent(txtAmount))
@@ -159,8 +162,8 @@ public class GUI implements Observer {
                                 .addComponent(lblAmount)
                                 .addComponent(lblresult))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-//                                    .addComponent(tocomboBox)
-//                                    .addComponent(fromcomboBox)
+                                .addComponent(tocomboBox)
+                                .addComponent(fromcomboBox)
                                 .addComponent(txtAmount)
                                 .addComponent(txtresult)
                                 .addComponent(btnGo))
@@ -178,18 +181,21 @@ public class GUI implements Observer {
         bottomPanel.add(txtAmount);
         bottomPanel.add(lblresult);
         bottomPanel.add(txtresult);
-//            bottomPanel.add(tocomboBox);
-//            bottomPanel.add(fromcomboBox);
+        bottomPanel.add(tocomboBox);
+        bottomPanel.add(fromcomboBox);
         bottomPanel.add(btnGo);
     }
+
     public boolean GetXMLUpdate()
     {
         return xmlupdated;
     }
+
     public void SetXMLUpdate(boolean xmlupdated)
     {
         this.xmlupdated=xmlupdated;
     }
+
     public static void log_msg(String msg) {
         String fileName = "log.txt";
         try {
@@ -215,6 +221,7 @@ public class GUI implements Observer {
             }
         }
     }
+
     public void update(Observable obj, Object arg)
     {
         System.out.println("test");
