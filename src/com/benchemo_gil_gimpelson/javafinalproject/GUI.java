@@ -21,7 +21,10 @@ public class GUI implements ActionListener {
     private String code[];
     private JButton btnRefresh;
     private JLabel lblstatus;
+    private JTextField txtAmount, txtresult;
+    private JComboBox<String> tocomboBox, fromcomboBox;
     private JFrame f;
+    private NodeList nList;
 
     public void BuildGUI() {
         //            GUI
@@ -30,11 +33,8 @@ public class GUI implements ActionListener {
         JTable jt;
         JScrollPane sp;
         GroupLayout layout;
-        JLabel lblAmount, lblFrom, lblTo, lblresult;
-        JComboBox<String> tocomboBox;
-        JComboBox<String> fromcomboBox;
-        JTextField txtAmount, txtresult;
         JButton btnGo;
+        JLabel lblAmount, lblFrom, lblTo, lblresult;
 
 //            CREATING ALL COMPONENTS
 
@@ -61,6 +61,13 @@ public class GUI implements ActionListener {
         txtAmount = new JTextField("");
         txtresult = new JTextField("");
         btnGo = new JButton("Go ");
+        btnGo.addActionListener(new ActionListener() {
+                                    @Override
+                                    public void actionPerformed(ActionEvent e) {
+                                        CurrencyExchange();
+                                    }
+                                });
+
         btnRefresh = new JButton();
         btnRefresh.setVisible(false);
         btnRefresh.addActionListener(this);
@@ -169,7 +176,7 @@ public class GUI implements ActionListener {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document docLocal = dBuilder.parse(fXmlFile);
-            NodeList nList = docLocal.getElementsByTagName("CURRENCY");
+            nList = docLocal.getElementsByTagName("CURRENCY");
             this.data = new String[nList.getLength()][6];
             this.code = new String[nList.getLength()];
             for (int i = 0; i < nList.getLength(); i++) {
@@ -185,30 +192,30 @@ public class GUI implements ActionListener {
                     code[i] = eElement.getElementsByTagName("CURRENCYCODE").item(0).getTextContent();
                 }
             }
-
-            //Rate exchange
-
-            String from = "LBP", to = "ILS";
-            double ammount = 1;
-            double fromRate = 1.0, fromUnit = 1.0, toRate = 1.0, toUnit = 1.0;
-            double exchangeRate;
-            for (int i = 0; i < nList.getLength(); i++){
-                if (data[i][2].equals(from)) {
-                    fromRate = Double.parseDouble(data[i][4]);
-                    fromUnit = Double.parseDouble(data[i][1]);
-                }
-                else if (data[i][2].equals(to)) {
-                    toRate = Double.parseDouble(data[i][4]);
-                    toUnit = Double.parseDouble(data[i][1]);
-                }
-            }
-
-            exchangeRate = (fromRate/toRate)*(toUnit/fromUnit)*ammount;
-            System.out.println(exchangeRate);
         }
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public void CurrencyExchange(){
+        //Rate exchange
+        String from = fromcomboBox.getSelectedItem().toString(), to = tocomboBox.getSelectedItem().toString();
+        double amount = Double.parseDouble(txtAmount.getText());
+        double fromRate = 1.0, fromUnit = 1.0, toRate = 1.0, toUnit = 1.0;
+        double exchangeRate;
+        for (int i = 0; i < nList.getLength(); i++){
+            if (data[i][2].equals(from)) {
+                fromRate = Double.parseDouble(data[i][4]);
+                fromUnit = Double.parseDouble(data[i][1]);
+            }
+            else if (data[i][2].equals(to)) {
+                toRate = Double.parseDouble(data[i][4]);
+                toUnit = Double.parseDouble(data[i][1]);
+            }
+        }
+
+        exchangeRate = (fromRate/toRate)*(toUnit/fromUnit)*amount;
+        txtresult.setText(String.valueOf(exchangeRate));
     }
     public void actionPerformed(ActionEvent e)
     {
