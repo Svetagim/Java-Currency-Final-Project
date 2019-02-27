@@ -137,3 +137,9 @@
 - Date found: 2019-02-27
 - File Date: 2019-02-27
 - Local file is updated
+- Current Date: Thu 2019.02.28 at 12:17:40 AM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
