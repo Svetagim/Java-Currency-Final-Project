@@ -8,21 +8,24 @@ import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.io.*;
-import java.util.Observer;
 import java.util.Observable;
 
-public class GUI  {
+public class GUI implements ActionListener {
 
     private String column[] = {"NAME", "UNIT", "CURRENCYCODE", "COUNTRY", "RATE", "CHANGE"};
     private String data[][];
     private String code[];
+    private JButton btnRefresh;
+    private JLabel lblstatus;
+    private JFrame f;
 
     public void BuildGUI() {
         //            GUI
 //            DECLARING ALL COMPONENTS
-
-        JFrame f;
         JPanel bottomPanel, topPanel;
         JTable jt;
         JScrollPane sp;
@@ -45,11 +48,17 @@ public class GUI  {
         lblFrom = new JLabel("From: ");
         lblTo = new JLabel("To: ");
         lblresult = new JLabel("Result: ");
+        lblstatus = new JLabel("test");
         tocomboBox = new JComboBox<>(code);
         fromcomboBox = new JComboBox<>(code);
         txtAmount = new JTextField("");
         txtresult = new JTextField("");
         btnGo = new JButton("Go ");
+        btnRefresh = new JButton();
+        btnRefresh.setVisible(false);
+        btnRefresh.addActionListener(this);
+        lblstatus.setVisible(false);
+        lblstatus.setSize(200,30);
 
 //            PROPERTIES OF ALL COMPONENTS
 
@@ -130,6 +139,17 @@ public class GUI  {
         bottomPanel.add(fromcomboBox);
         bottomPanel.add(btnGo);
     }
+
+    public JButton getBtnRefresh() {
+        return btnRefresh;
+    }
+
+    public void setStatus(String text) {
+        lblstatus.setText(text);
+        lblstatus.setVisible(true);
+        System.out.println("TEST");
+    }
+
     public void parseXMLfile() {
         try{
             File fXmlFile = new File("currency.xml");
@@ -177,6 +197,12 @@ public class GUI  {
             e.printStackTrace();
         }
     }
+    public void actionPerformed(ActionEvent e)
+    {
+        f.dispatchEvent(new WindowEvent(f, WindowEvent.WINDOW_CLOSING));
+        System.out.println("TEST");
+    }
+
     public static void log_msg(String msg) {
         String fileName = "log.txt";
         try {
@@ -194,7 +220,7 @@ public class GUI  {
         GUI screen = new GUI();
         screen.parseXMLfile();
         screen.BuildGUI();
-        System.out.println();
+        Observer T1 = new Observer(screen);
     }
 }
 
