@@ -8,76 +8,24 @@ import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.io.*;
-import java.util.Observer;
 import java.util.Observable;
 
-public class GUI implements Observer {
+public class GUI implements ActionListener {
 
     private String column[] = {"NAME", "UNIT", "CURRENCYCODE", "COUNTRY", "RATE", "CHANGE"};
     private String data[][];
     private String code[];
-    private boolean xmlupdated=false; //false = XML is outdated, true = XML is updated
-
-    public GUI()
-    {
-        parseXMLfile();
-        BuildGUI();
-    }
-
-    public void parseXMLfile() {
-        try{
-            File fXmlFile = new File("currency.xml");
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document docLocal = dBuilder.parse(fXmlFile);
-            NodeList nList = docLocal.getElementsByTagName("CURRENCY");
-            this.data = new String[nList.getLength()][6];
-            this.code = new String[nList.getLength()];
-            for (int i = 0; i < nList.getLength(); i++) {
-                Node nNode = nList.item(i);
-                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                    Element eElement = (Element) nNode;
-                    data[i][0] = eElement.getElementsByTagName("NAME").item(0).getTextContent();
-                    data[i][1] = eElement.getElementsByTagName("UNIT").item(0).getTextContent();
-                    data[i][2] = eElement.getElementsByTagName("CURRENCYCODE").item(0).getTextContent();
-                    data[i][3] = eElement.getElementsByTagName("COUNTRY").item(0).getTextContent();
-                    data[i][4] = eElement.getElementsByTagName("RATE").item(0).getTextContent();
-                    data[i][5] = eElement.getElementsByTagName("CHANGE").item(0).getTextContent();
-                    code[i] = eElement.getElementsByTagName("CURRENCYCODE").item(0).getTextContent();
-                }
-            }
-
-            //Rate exchange
-
-            String from = "LBP", to = "ILS";
-            double ammount = 1;
-            double fromRate = 1.0, fromUnit = 1.0, toRate = 1.0, toUnit = 1.0;
-            double exchangeRate;
-            for (int i = 0; i < nList.getLength(); i++){
-                if (data[i][2].equals(from)) {
-                    fromRate = Double.parseDouble(data[i][4]);
-                    fromUnit = Double.parseDouble(data[i][1]);
-                }
-                else if (data[i][2].equals(to)) {
-                    toRate = Double.parseDouble(data[i][4]);
-                    toUnit = Double.parseDouble(data[i][1]);
-                }
-            }
-
-            exchangeRate = (fromRate/toRate)*(toUnit/fromUnit)*ammount;
-            System.out.println(exchangeRate);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+    private JButton btnRefresh;
+    private JLabel lblstatus;
+    private JFrame f;
 
     public void BuildGUI() {
         //            GUI
 //            DECLARING ALL COMPONENTS
-
-        JFrame f;
         JPanel bottomPanel, topPanel;
         JTable jt;
         JScrollPane sp;
@@ -91,6 +39,13 @@ public class GUI implements Observer {
 //            CREATING ALL COMPONENTS
 
         f = new JFrame("Java Currency App");
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
+        int windowWidth = 1200;
+        int windowHeight = 600;
+        f.setBounds(center.x - windowWidth / 2, center.y - windowHeight / 2, windowWidth,
+                windowHeight);
+
         topPanel = new JPanel();
         bottomPanel = new JPanel();
         jt = new JTable(data, column);
@@ -100,13 +55,22 @@ public class GUI implements Observer {
         lblFrom = new JLabel("From: ");
         lblTo = new JLabel("To: ");
         lblresult = new JLabel("Result: ");
+        lblstatus = new JLabel("test");
         tocomboBox = new JComboBox<>(code);
         fromcomboBox = new JComboBox<>(code);
         txtAmount = new JTextField("");
         txtresult = new JTextField("");
         btnGo = new JButton("Go ");
+        btnRefresh = new JButton();
+        btnRefresh.setVisible(false);
+        btnRefresh.addActionListener(this);
+        lblstatus.setVisible(false);
+        lblstatus.setSize(200,30);
 
 //            PROPERTIES OF ALL COMPONENTS
+
+        f.revalidate();
+        f.repaint();
 
         f.setSize(1200, 600);
         f.setLayout(new BorderLayout());
@@ -186,14 +150,71 @@ public class GUI implements Observer {
         bottomPanel.add(btnGo);
     }
 
-    public boolean GetXMLUpdate()
-    {
-        return xmlupdated;
+    public void setColumn(String[] column) {
+        this.column = column;
     }
 
-    public void SetXMLUpdate(boolean xmlupdated)
+    public JButton getBtnRefresh() {
+        return btnRefresh;
+    }
+
+    public void setStatus(String text) {
+        lblstatus.setText(text);
+        lblstatus.setVisible(true);
+    }
+
+    public void parseXMLfile() {
+        try{
+            File fXmlFile = new File("currency.xml");
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document docLocal = dBuilder.parse(fXmlFile);
+            NodeList nList = docLocal.getElementsByTagName("CURRENCY");
+            this.data = new String[nList.getLength()][6];
+            this.code = new String[nList.getLength()];
+            for (int i = 0; i < nList.getLength(); i++) {
+                Node nNode = nList.item(i);
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+                    data[i][0] = eElement.getElementsByTagName("NAME").item(0).getTextContent();
+                    data[i][1] = eElement.getElementsByTagName("UNIT").item(0).getTextContent();
+                    data[i][2] = eElement.getElementsByTagName("CURRENCYCODE").item(0).getTextContent();
+                    data[i][3] = eElement.getElementsByTagName("COUNTRY").item(0).getTextContent();
+                    data[i][4] = eElement.getElementsByTagName("RATE").item(0).getTextContent();
+                    data[i][5] = eElement.getElementsByTagName("CHANGE").item(0).getTextContent();
+                    code[i] = eElement.getElementsByTagName("CURRENCYCODE").item(0).getTextContent();
+                }
+            }
+
+            //Rate exchange
+
+            String from = "LBP", to = "ILS";
+            double ammount = 1;
+            double fromRate = 1.0, fromUnit = 1.0, toRate = 1.0, toUnit = 1.0;
+            double exchangeRate;
+            for (int i = 0; i < nList.getLength(); i++){
+                if (data[i][2].equals(from)) {
+                    fromRate = Double.parseDouble(data[i][4]);
+                    fromUnit = Double.parseDouble(data[i][1]);
+                }
+                else if (data[i][2].equals(to)) {
+                    toRate = Double.parseDouble(data[i][4]);
+                    toUnit = Double.parseDouble(data[i][1]);
+                }
+            }
+
+            exchangeRate = (fromRate/toRate)*(toUnit/fromUnit)*ammount;
+            System.out.println(exchangeRate);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void actionPerformed(ActionEvent e)
     {
-        this.xmlupdated=xmlupdated;
+        f.dispatchEvent(new WindowEvent(f, WindowEvent.WINDOW_CLOSING));
+        parseXMLfile();
+        BuildGUI();
     }
 
     public static void log_msg(String msg) {
@@ -210,21 +231,10 @@ public class GUI implements Observer {
     }
 
     public static void main(String args[]) {
-        Watcher watched_value = new Watcher(false);
-        GUI gui = new GUI();
-        watched_value.addObserver(gui);
-        watched_value.setValue();
-        while(true){
-            if(watched_value.hasChanged())
-            {
-                gui = new GUI();
-            }
-        }
-    }
-
-    public void update(Observable obj, Object arg)
-    {
-        System.out.println("test");
+        GUI screen = new GUI();
+        screen.parseXMLfile();
+        screen.BuildGUI();
+        Observer T1 = new Observer(screen);
     }
 }
 
