@@ -194,6 +194,7 @@ public class GUI  {
         GUI screen = new GUI();
         screen.parseXMLfile();
         screen.BuildGUI();
+        System.out.println();
     }
 }
 
