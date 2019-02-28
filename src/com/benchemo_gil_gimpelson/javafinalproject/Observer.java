@@ -115,7 +115,7 @@ public class Observer extends Thread{
                     }
                 }
                 try {
-                    screen.setStatus("Last check: " + ft.format(dNow));
+                    screen.setStatus("Last Check: " + ft.format(dNow));
                     Thread.sleep(30000);
                 }
                 catch (InterruptedException e)

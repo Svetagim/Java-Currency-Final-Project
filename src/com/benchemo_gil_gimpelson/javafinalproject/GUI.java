@@ -12,8 +12,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.io.*;
-import java.util.Arrays;
-import java.util.Observable;
 
 public class GUI implements ActionListener {
 
@@ -43,11 +41,13 @@ public class GUI implements ActionListener {
         JScrollPane sp;
         GroupLayout layout;
         JButton btnGo;
-        JLabel lblAmount, lblFrom, lblTo, lblresult, lblstatus;
+        JLabel lblAmount, lblFrom, lblTo, lblresult;
 
 //            CREATING ALL COMPONENTS
 
         f = new JFrame("Java Currency App");
+        f.revalidate();
+        f.repaint();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         Point center = GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint();
         int windowWidth = 1200;
@@ -64,10 +64,10 @@ public class GUI implements ActionListener {
         lblFrom = new JLabel("From: ");
         lblTo = new JLabel("To: ");
         lblresult = new JLabel("Result: ");
-        lblstatus = new JLabel("Last updated: " + strUpdate);
+        lblstatus = new JLabel();
         tocomboBox = new JComboBox<>(code);
         fromcomboBox = new JComboBox<>(code);
-        txtAmount = new JTextField("");
+        txtAmount = new JTextField("1");
         txtresult = new JTextField("");
         btnGo = new JButton("Go ");
         btnGo.addActionListener(new ActionListener() {
@@ -248,7 +248,7 @@ public class GUI implements ActionListener {
         exchangeRate = (fromRate/toRate)*(toUnit/fromUnit)*amount;
         txtresult.setText(String.valueOf(exchangeRate));
 
-        log_msg("\nExchange between: " + fromcomboBox.getSelectedItem().toString() + " to: " + tocomboBox.getSelectedItem().toString() + " = " +txtresult.getText());
+        log_msg("\nExchange between: " + fromcomboBox.getSelectedItem().toString() + " to: " + tocomboBox.getSelectedItem().toString() + " = " +txtresult.getText()+"\n");
     }
 
     /**
