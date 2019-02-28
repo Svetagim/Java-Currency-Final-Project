@@ -20,11 +20,20 @@ public class Observer extends Thread{
     private HttpURLConnection con = null;
     private NodeList nList = null, lastUpdate = null;
 
+    /**
+     * This method Observer's constructor
+     * This method receives GUI
+     */
     public Observer(GUI screen){
         this.screen=screen;
         watchdog = new Thread(this);
         watchdog.start();
     }
+
+    /**
+     * This method implements a running of a thread
+     * This method doesn't receive any parameters and returns void
+     */
     public void run(){
             while(true) {
                 Date dNow = new Date( );
@@ -107,7 +116,7 @@ public class Observer extends Thread{
                 }
                 try {
                     screen.setStatus("Last check: " + ft.format(dNow));
-                    Thread.sleep(9000);
+                    Thread.sleep(30000);
                 }
                 catch (InterruptedException e)
                 {

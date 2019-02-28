@@ -30,6 +30,10 @@ public class GUI implements ActionListener {
     private NodeList update;
     private String strUpdate;
 
+    /**
+     * This method is used to build GUI
+     */
+
     public void BuildGUI() {
         //            GUI
 //            DECLARING ALL COMPONENTS
@@ -166,19 +170,27 @@ public class GUI implements ActionListener {
         bottomPanel.add(btnGo);
     }
 
-    public void setColumn(String[] column) {
-        this.column = column;
-    }
-
+    /**
+     * This method is used to refresh the search when new search made by the client
+     * This method returns JButton
+     */
     public JButton getBtnRefresh() {
         return btnRefresh;
     }
 
+    /**
+     * This method is used to refresh the status of the last XML's date
+     * This method receives String and returns void
+     */
     public void setStatus(String text) {
         lblstatus.setText(text);
         lblstatus.setVisible(true);
     }
 
+    /**
+     * This method is used to parse the local XML file and to read all relevant fields
+     * This method doesn't receive any parameters and returns void
+     */
     public void parseXMLfile() {
         try{
             File fXmlFile = new File("currency.xml");
@@ -210,6 +222,11 @@ public class GUI implements ActionListener {
             e.printStackTrace();
         }
     }
+
+    /**
+     * This method is used to calculate the currency exchange rates
+     * This method doesn't receive any parameters and returns void
+     */
     public void CurrencyExchange(){
         //Rate exchange
         String from = fromcomboBox.getSelectedItem().toString(), to = tocomboBox.getSelectedItem().toString();
@@ -232,6 +249,11 @@ public class GUI implements ActionListener {
 
         log_msg("\nExchange between: " + fromcomboBox.getSelectedItem().toString() + " to: " + tocomboBox.getSelectedItem().toString() + " = " +txtresult.getText());
     }
+
+    /**
+     * This method is used to refresh the GUI
+     * This method receives ActionEvent and returns void
+     */
     public void actionPerformed(ActionEvent e)
     {
         f.dispatchEvent(new WindowEvent(f, WindowEvent.WINDOW_CLOSING));
@@ -239,6 +261,10 @@ public class GUI implements ActionListener {
         BuildGUI();
     }
 
+    /**
+     * This method is used to write to a log file
+     * This method receives String and returns void
+     */
     public static void log_msg(String msg) {
         String fileName = "log.txt";
         try {
@@ -252,6 +278,9 @@ public class GUI implements ActionListener {
         }
     }
 
+    /**
+     * This is the main method
+     */
     public static void main(String args[]) {
         GUI screen = new GUI();
         screen.parseXMLfile();
