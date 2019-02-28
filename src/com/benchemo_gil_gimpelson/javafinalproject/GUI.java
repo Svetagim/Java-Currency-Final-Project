@@ -32,6 +32,7 @@ public class GUI implements ActionListener {
 
     /**
      * This method is used to build GUI
+     * This method doesn't receive any parameters and returns void
      */
 
     public void BuildGUI() {
