@@ -248,7 +248,7 @@ public class GUI implements ActionListener {
         exchangeRate = (fromRate/toRate)*(toUnit/fromUnit)*amount;
         txtresult.setText(String.valueOf(exchangeRate));
 
-        log_msg("\nExchange between: " + fromcomboBox.getSelectedItem().toString() + " to: " + tocomboBox.getSelectedItem().toString() + " = " +txtresult.getText()+"\n");
+        log_msg("\nExchange between: " + txtAmount.getText() + " " + fromcomboBox.getSelectedItem().toString() + " to: " + tocomboBox.getSelectedItem().toString() + " = " +txtresult.getText());
     }
 
     /**
