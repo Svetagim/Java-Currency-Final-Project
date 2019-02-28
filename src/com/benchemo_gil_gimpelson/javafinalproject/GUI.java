@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.io.*;
+import java.util.Arrays;
 import java.util.Observable;
 
 public class GUI implements ActionListener {
@@ -19,12 +20,14 @@ public class GUI implements ActionListener {
     private String column[] = {"NAME", "UNIT", "CURRENCYCODE", "COUNTRY", "RATE", "CHANGE"};
     private String data[][];
     private String code[];
+    private String[] lastUpdate;
     private JButton btnRefresh;
     private JLabel lblstatus;
     private JTextField txtAmount, txtresult;
     private JComboBox<String> tocomboBox, fromcomboBox;
     private JFrame f;
     private NodeList nList;
+    private NodeList update;
 
     public void BuildGUI() {
         //            GUI
@@ -34,7 +37,7 @@ public class GUI implements ActionListener {
         JScrollPane sp;
         GroupLayout layout;
         JButton btnGo;
-        JLabel lblAmount, lblFrom, lblTo, lblresult;
+        JLabel lblAmount, lblFrom, lblTo, lblresult, lblstatus;
 
 //            CREATING ALL COMPONENTS
 
@@ -55,31 +58,29 @@ public class GUI implements ActionListener {
         lblFrom = new JLabel("From: ");
         lblTo = new JLabel("To: ");
         lblresult = new JLabel("Result: ");
-        lblstatus = new JLabel("test");
+        lblstatus = new JLabel("Last updated: " + Arrays.toString(lastUpdate));
         tocomboBox = new JComboBox<>(code);
         fromcomboBox = new JComboBox<>(code);
         txtAmount = new JTextField("");
         txtresult = new JTextField("");
         btnGo = new JButton("Go ");
         btnGo.addActionListener(new ActionListener() {
-                                    @Override
-                                    public void actionPerformed(ActionEvent e) {
-                                        CurrencyExchange();
-                                    }
-                                });
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CurrencyExchange();
+            }
+        });
 
         btnRefresh = new JButton();
         btnRefresh.setVisible(false);
         btnRefresh.addActionListener(this);
-        lblstatus.setVisible(false);
-        lblstatus.setSize(200,30);
 
 //            PROPERTIES OF ALL COMPONENTS
 
         f.revalidate();
         f.repaint();
 
-        f.setSize(1200, 600);
+        f.setSize(1200, 400);
         f.setLayout(new BorderLayout());
         f.setVisible(true);
         f.setBackground(Color.gray);
@@ -88,6 +89,7 @@ public class GUI implements ActionListener {
         topPanel.setVisible(true);
         topPanel.setLayout(new BorderLayout());
         topPanel.setBackground(Color.WHITE);
+        topPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
         sp.setPreferredSize(new Dimension(1200, 250));
 
@@ -95,10 +97,13 @@ public class GUI implements ActionListener {
         bottomPanel.setVisible(true);
         bottomPanel.setLayout(layout);
         bottomPanel.setBackground(Color.WHITE);
+        bottomPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 
         layout.setAutoCreateGaps(true);
         layout.setAutoCreateContainerGaps(true);
 
+        lblstatus.setVisible(true);
+        lblstatus.setSize(200,30);
         lblTo.setBounds(50, 110, 100, 30);
         lblFrom.setBounds(50, 80, 100, 30);
         lblAmount.setBounds(50, 50, 100, 30);
@@ -112,18 +117,20 @@ public class GUI implements ActionListener {
         layout.setHorizontalGroup(
                 layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                .addComponent(lblTo))
-                                .addComponent(tocomboBox)
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(lblFrom))
-                                .addComponent(fromcomboBox)
+                        .addComponent(fromcomboBox)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                .addComponent(lblTo))
+                        .addComponent(tocomboBox)
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(lblAmount)
                                 .addComponent(txtAmount))
                         .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                 .addComponent(lblresult)
                                 .addComponent(txtresult))
-                        .addComponent(btnGo)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                .addComponent(btnGo)
+                                .addComponent(lblstatus))
         );
         layout.setVerticalGroup(
                 layout.createSequentialGroup()
@@ -138,13 +145,14 @@ public class GUI implements ActionListener {
                                 .addComponent(txtAmount)
                                 .addComponent(txtresult)
                                 .addComponent(btnGo))
+                        .addComponent(lblstatus)
         );
 
 
 //            ADDING ALL COMPONENTS TO CONTAINERS
 
-        f.add(topPanel, BorderLayout.NORTH);
-        f.add(bottomPanel, BorderLayout.SOUTH);
+        f.add(topPanel, BorderLayout.SOUTH);
+        f.add(bottomPanel, BorderLayout.NORTH);
         topPanel.add(sp, BorderLayout.CENTER);
         bottomPanel.add(lblTo);
         bottomPanel.add(lblFrom);
@@ -177,8 +185,10 @@ public class GUI implements ActionListener {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document docLocal = dBuilder.parse(fXmlFile);
             nList = docLocal.getElementsByTagName("CURRENCY");
+            update = docLocal.getElementsByTagName("LAST_UPDATE");
             this.data = new String[nList.getLength()][6];
             this.code = new String[nList.getLength()+1];
+            this.lastUpdate = new String[update.getLength()];
             code[0] = "ILS";
             for (int i = 0; i < nList.getLength(); i++) {
                 Node nNode = nList.item(i);
@@ -214,8 +224,10 @@ public class GUI implements ActionListener {
                 toUnit = Double.parseDouble(data[i][1]);
             }
         }
+
         exchangeRate = (fromRate/toRate)*(toUnit/fromUnit)*amount;
         txtresult.setText(String.valueOf(exchangeRate));
+
         log_msg("\nExchange between: " + fromcomboBox.getSelectedItem().toString() + " to: " + tocomboBox.getSelectedItem().toString() + " = " +txtresult.getText());
     }
     public void actionPerformed(ActionEvent e)

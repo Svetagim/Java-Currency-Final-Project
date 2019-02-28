@@ -634,3 +634,141 @@ Exchange between: USD to: ILS = 3.619
 - Date found: 2019-02-27
 - File Date: 2019-02-27
 - Local file is updated
+- Current Date: Thu 2019.02.28 at 02:46:16 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+
+Exchange between: ILS to: ILS = 1.0
+
+Exchange between: ILS to: ILS = 1.0
+- Current Date: Thu 2019.02.28 at 02:47:41 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 02:53:08 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 02:56:09 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 02:58:19 PM IST
+- Prepare to check if there is a new XML file 
+- Current Date: Thu 2019.02.28 at 02:58:58 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 02:59:22 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:00:25 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:00:48 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:04:15 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:06:25 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:09:00 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:10:01 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:10:23 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:12:51 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:17:57 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:18:43 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:19:17 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:19:27 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:20:03 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:21:18 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:21:33 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:28:21 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-27
+- File Date: 2019-02-27
+- Local file is updated
