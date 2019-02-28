@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c51865f2-0d34-491c-a098-81603d98b06f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/currency.xml" beforeDir="false" afterPath="$PROJECT_DIR$/currency.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/final_project/com/benchemo_gil_gimpelson/javafinalproject/GUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/final_project/com/benchemo_gil_gimpelson/javafinalproject/GUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/final_project/com/benchemo_gil_gimpelson/javafinalproject/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/final_project/com/benchemo_gil_gimpelson/javafinalproject/GUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/final_project/com/benchemo_gil_gimpelson/javafinalproject/Observer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/final_project/com/benchemo_gil_gimpelson/javafinalproject/Observer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -35,26 +32,26 @@
           <entry key="gitignore" value="1" />
           <entry key="java" value="3" />
           <entry key="md" value="1" />
-          <entry key="txt" value="5" />
-          <entry key="xml" value="1" />
+          <entry key="txt" value="6" />
+          <entry key="xml" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JAVA" value="3" />
-          <entry key="PLAIN_TEXT" value="7" />
-          <entry key="XML" value="1" />
+          <entry key="PLAIN_TEXT" value="8" />
+          <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="51" />
+          <entry key="java" value="97" />
           <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="51" />
+          <entry key="JAVA" value="97" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
@@ -65,8 +62,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3515">
-              <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+            <state relative-caret-position="131">
+              <caret line="61" column="50" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,10 +72,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log.txt">
+        <entry file="file://$PROJECT_DIR$/currency.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4625">
-              <caret line="370" selection-start-line="370" selection-end-line="370" />
+            <state relative-caret-position="30">
+              <caret line="2" column="14" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -86,8 +83,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Observer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="111" column="24" lean-forward="true" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
+            <state relative-caret-position="262">
+              <caret line="46" column="87" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="87" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,9 +100,12 @@
       <find>ft</find>
       <find>ft.format</find>
       <find>setStatus</find>
-      <find>lblstatus</find>
       <find>lastUpdate</find>
+      <find>nli</find>
+      <find>GUI</find>
+      <find>nList</find>
       <find>update</find>
+      <find>lblstatus</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -114,8 +114,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java" />
         <option value="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Observer.java" />
+        <option value="$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java" />
       </list>
     </option>
   </component>
@@ -156,7 +156,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551360499177" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551361266121" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -215,7 +215,7 @@
     <frame x="0" y="23" width="1440" height="792" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -225,7 +225,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32857144" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32857144" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -252,13 +252,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="xml" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/currency.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -267,15 +260,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/log.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4625">
+        <state relative-caret-position="15">
           <caret line="370" selection-start-line="370" selection-end-line="370" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/currency.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/Observer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="111" column="24" lean-forward="true" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
+        <state relative-caret-position="262">
+          <caret line="46" column="87" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="87" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -284,8 +284,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/benchemo_gil_gimpelson/javafinalproject/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3515">
-          <caret line="17" column="44" selection-start-line="17" selection-start-column="44" selection-end-line="17" selection-end-column="44" />
+        <state relative-caret-position="131">
+          <caret line="61" column="50" selection-start-line="61" selection-start-column="50" selection-end-line="61" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

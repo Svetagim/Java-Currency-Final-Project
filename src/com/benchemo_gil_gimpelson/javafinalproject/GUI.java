@@ -28,6 +28,7 @@ public class GUI implements ActionListener {
     private JFrame f;
     private NodeList nList;
     private NodeList update;
+    private String strUpdate;
 
     public void BuildGUI() {
         //            GUI
@@ -58,7 +59,7 @@ public class GUI implements ActionListener {
         lblFrom = new JLabel("From: ");
         lblTo = new JLabel("To: ");
         lblresult = new JLabel("Result: ");
-        lblstatus = new JLabel("Last updated: " + Arrays.toString(lastUpdate));
+        lblstatus = new JLabel("Last updated: " + strUpdate);
         tocomboBox = new JComboBox<>(code);
         fromcomboBox = new JComboBox<>(code);
         txtAmount = new JTextField("");
@@ -186,6 +187,7 @@ public class GUI implements ActionListener {
             Document docLocal = dBuilder.parse(fXmlFile);
             nList = docLocal.getElementsByTagName("CURRENCY");
             update = docLocal.getElementsByTagName("LAST_UPDATE");
+            strUpdate =  update.item(0).getTextContent();
             this.data = new String[nList.getLength()][6];
             this.code = new String[nList.getLength()+1];
             this.lastUpdate = new String[update.getLength()];

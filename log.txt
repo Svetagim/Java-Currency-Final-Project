@@ -772,3 +772,29 @@ Exchange between: ILS to: ILS = 1.0
 - Date found: 2019-02-27
 - File Date: 2019-02-27
 - Local file is updated
+- Current Date: Thu 2019.02.28 at 03:32:25 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-28
+- File Date: 2019-02-28
+- XML is outdated
+- Update the local file
+- Local file is now updated
+- Current Date: Thu 2019.02.28 at 03:33:05 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-28
+- File Date: 2019-02-28
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:40:37 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-28
+- File Date: 2019-02-28
+- Local file is updated
+- Current Date: Thu 2019.02.28 at 03:40:58 PM IST
+- Prepare to check if there is a new XML file 
+- Connected to Bank of israel
+- Date found: 2019-02-28
+- File Date: 2019-02-28
+- Local file is updated
