@@ -178,7 +178,8 @@ public class GUI implements ActionListener {
             Document docLocal = dBuilder.parse(fXmlFile);
             nList = docLocal.getElementsByTagName("CURRENCY");
             this.data = new String[nList.getLength()][6];
-            this.code = new String[nList.getLength()];
+            this.code = new String[nList.getLength()+1];
+            code[0] = "ILS";
             for (int i = 0; i < nList.getLength(); i++) {
                 Node nNode = nList.item(i);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
@@ -189,7 +190,7 @@ public class GUI implements ActionListener {
                     data[i][3] = eElement.getElementsByTagName("COUNTRY").item(0).getTextContent();
                     data[i][4] = eElement.getElementsByTagName("RATE").item(0).getTextContent();
                     data[i][5] = eElement.getElementsByTagName("CHANGE").item(0).getTextContent();
-                    code[i] = eElement.getElementsByTagName("CURRENCYCODE").item(0).getTextContent();
+                    code[i+1] = eElement.getElementsByTagName("CURRENCYCODE").item(0).getTextContent();
                 }
             }
         }
@@ -208,12 +209,11 @@ public class GUI implements ActionListener {
                 fromRate = Double.parseDouble(data[i][4]);
                 fromUnit = Double.parseDouble(data[i][1]);
             }
-            else if (data[i][2].equals(to)) {
+            if (data[i][2].equals(to)) {
                 toRate = Double.parseDouble(data[i][4]);
                 toUnit = Double.parseDouble(data[i][1]);
             }
         }
-
         exchangeRate = (fromRate/toRate)*(toUnit/fromUnit)*amount;
         txtresult.setText(String.valueOf(exchangeRate));
         log_msg("\nExchange between: " + fromcomboBox.getSelectedItem().toString() + " to: " + tocomboBox.getSelectedItem().toString() + " = " +txtresult.getText());
